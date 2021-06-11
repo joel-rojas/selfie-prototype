@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "selfie-prototype",
-    "slug": "selfie-prototype",
+    "name": "selfie-prototype-by-emerson-rojas",
+    "slug": "selfie-prototype-by-emerson-rojas",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/core/assets/icon.png",
@@ -13,7 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
@@ -29,6 +31,8 @@
     },
     "web": {
       "favicon": "./src/core/assets/favicon.png"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/joel-rojas/selfie-prototype"
   }
 }
