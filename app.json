@@ -17,7 +17,8 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSPhotoLibraryAddUsageDescription": "Selfie uses your photo gallery to allow you to save and see your selfie photos"
+        "NSPhotoLibraryAddUsageDescription": "Selfie uses your photo gallery to allow you to save and see your selfie photos",
+        "NSCameraUsageDescription": "Selfie use your fron camera to take photos"
       }
     },
     "android": {

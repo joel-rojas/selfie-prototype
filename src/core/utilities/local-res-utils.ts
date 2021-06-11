@@ -1,5 +1,6 @@
 import * as Font from "expo-font";
 import * as MediaLibrary from "expo-media-library";
+import { Camera, PermissionStatus } from "expo-camera";
 
 import { SELFIES_DIR } from "@utilities/constants";
 
@@ -36,6 +37,23 @@ export const makeSelfieAlbum = async (): Promise<
   } else {
     await MediaLibrary.requestPermissionsAsync();
     await setSelfieDir();
+  }
+  return status;
+};
+
+export const requestCameraUsage = async (): Promise<
+  PermissionStatus | Error
+> => {
+  const { status } = await Camera.getPermissionsAsync();
+  if (
+    status === PermissionStatus.DENIED ||
+    status === PermissionStatus.UNDETERMINED
+  ) {
+    const permission = await Camera.requestPermissionsAsync();
+    if (permission.granted && permission.status === PermissionStatus.GRANTED) {
+      return permission.status;
+    }
+    throw new Error("No camera access");
   }
   return status;
 };
