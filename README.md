@@ -34,6 +34,12 @@ The app can be opened by running its own local server but these steps should be 
 
 Finally, follow `2-4` steps from `Quick way review` section and the app should be ready to go.
 
+### App permissions
+
+Once app is opened, it will request permission to access photo media gallery and camera and these must be allowed to have **full access** otherwise the app will display a message to change permissions and the app won't work. These requests are asked just once.
+
+After allowing permissions, the app will create a custom media album called `Selfie_App` in iOS device which will contain all photos taken. 
+
 ## Limits
 The app meets all requirements needed by the code challenge. However, some functionalities are incomplete or need to improve:
 
