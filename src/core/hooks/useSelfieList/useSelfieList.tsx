@@ -2,7 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as MediaLibrary from "expo-media-library";
 
-import { AppDispatch, getSelfieList, loadSelfieList, selfieListLoaded } from "@store";
+import {
+  AppDispatch,
+  getSelfieList,
+  loadSelfieList,
+  selfieListLoaded,
+} from "@store";
 import { parseSelfieList } from "@models";
 import { SELFIES_DIR } from "@utilities";
 

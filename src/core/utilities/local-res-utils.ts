@@ -19,7 +19,7 @@ export const makeSelfieAlbum = async (): Promise<
       return await MediaLibrary.createAlbumAsync(SELFIES_DIR);
     }
     return dirInfo;
-  }
+  };
   const { status, accessPrivileges } = await MediaLibrary.getPermissionsAsync();
 
   if (
