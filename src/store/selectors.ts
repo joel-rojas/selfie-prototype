@@ -1,6 +1,6 @@
-import { ISelfieState } from "./reducers";
+import { IAppState } from "./store";
 
-export const getSelfieList = (state: ISelfieState) => state.selfieList;
+export const getSelfieList = (state: IAppState) => state.selfies.selfieList;
 
-export const getSingleSelfie = (state: ISelfieState, { id }: { id: string }) =>
-  state.selfieList.find((item) => item.id === id);
+export const getSingleSelfie = (state: IAppState, { id }: { id: string }) =>
+  state.selfies.selfieList.find((item) => item.id === id);
