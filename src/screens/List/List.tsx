@@ -33,7 +33,7 @@ const List: React.FC<{}> = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   title: {
     ...defaultStyles.text,
