@@ -3,7 +3,7 @@ import { SELFIE_PREFIX } from "@utilities";
 export type ISelfieItem = {
   createdDate: string;
   createdTime: string;
-  imageFile: string;
+  imageUri: string;
   id: string;
 };
 
@@ -16,15 +16,18 @@ export type IInternalPhotoItem = {
   height: number;
 };
 
-export const parseSavedSelfie = (): ISelfieItem => {
-  const selfieDate = new Date(Date.now());
-  const date = selfieDate.toDateString();
-  const time = selfieDate.toTimeString();
+export const parseSavedSelfie = (
+  creationTime: number,
+  imageUri: string
+): ISelfieItem => {
+  const selfieDate = new Date(creationTime);
+  const date = selfieDate.toLocaleDateString();
+  const time = selfieDate.toLocaleTimeString();
   const imageName = `${SELFIE_PREFIX}${selfieDate}`;
   return {
     createdDate: date,
     createdTime: time,
-    imageFile: `${imageName}.jpg`,
+    imageUri,
     id: imageName,
   };
 };
@@ -35,9 +38,9 @@ export const parseSelfieList = (list: IInternalPhotoItem[]): ISelfieItem[] => {
     const createdDate = new Date(creationTime);
     const imageName = `${SELFIE_PREFIX}${creationTime}`;
     return {
-      createdDate: createdDate.toDateString(),
-      createdTime: createdDate.toTimeString(),
-      imageFile: uri,
+      createdDate: createdDate.toLocaleDateString(),
+      createdTime: createdDate.toLocaleTimeString(),
+      imageUri: uri,
       id: imageName,
     };
   });
