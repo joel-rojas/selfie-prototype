@@ -7,6 +7,7 @@ import List from "@screens/List/List";
 import Selfie from "@screens/Selfie/Selfie";
 import Camera from "@screens/Camera/Camera";
 import Header from "@components/Header/Header";
+import NavigateBackHeader from "@components/Header/NavigateBackHeader";
 
 const Stack = createStackNavigator();
 
@@ -24,10 +25,16 @@ const AppNavigation: React.FC<{}> = () => {
         <Stack.Screen
           name={routeConfig.routes.selfie}
           component={Selfie}
+          options={{
+            header: (props) => <NavigateBackHeader />,
+          }}
         ></Stack.Screen>
         <Stack.Screen
           name={routeConfig.routes.camera}
           component={Camera}
+          options={{
+            header: (props) => <NavigateBackHeader />,
+          }}
         ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

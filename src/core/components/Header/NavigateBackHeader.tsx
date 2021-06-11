@@ -1,29 +1,26 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { StackHeaderProps } from "@react-navigation/stack";
-import { useNavigation } from "@react-navigation/core";
 import { Header as RNEHeader } from "react-native-elements";
+import { useNavigation } from "@react-navigation/core";
 
-import * as routeConfig from "@navigation/config.json";
 import HeaderTitle from "@components/Header/HeaderTitle";
 
-const Header: React.FC<StackHeaderProps> = () => {
+const NavigateBackHeader: React.FC<{}> = () => {
   const navigation = useNavigation();
 
-  const handleNavigateSelfieScreen = () => {
-    navigation.navigate(routeConfig.routes.camera);
+  const handleNavigateBack = () => {
+    navigation.goBack();
   };
-
   return (
     <RNEHeader
       containerStyle={styles.container}
-      centerComponent={<HeaderTitle />}
-      rightComponent={{
-        icon: "camera",
+      leftComponent={{
+        icon: "chevron-left",
         type: "font-awesome",
         style: { ...styles.selfieIcon },
-        onPress: handleNavigateSelfieScreen,
+        onPress: handleNavigateBack,
       }}
+      centerComponent={<HeaderTitle />}
     ></RNEHeader>
   );
 };
@@ -37,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default NavigateBackHeader;
