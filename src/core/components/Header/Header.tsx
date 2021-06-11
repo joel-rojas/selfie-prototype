@@ -10,7 +10,7 @@ import { defaultStyles } from "@styles";
 const Header: React.FC<StackHeaderProps> = () => {
   const navigation = useNavigation();
   const handleNavigateSelfieScreen = () => {
-    navigation.navigate(routeConfig.routes.selfie);
+    navigation.navigate(routeConfig.routes.camera);
   };
   return (
     <HeaderEl

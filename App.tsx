@@ -8,6 +8,7 @@ import { store } from "@store";
 import * as routeConfig from "@navigation/config.json";
 import List from "@screens/List/List";
 import Selfie from "@screens/Selfie/Selfie";
+import Camera from "@screens/Camera/Camera";
 import BaseHOC from "@components/BaseHOC/BaseHOC";
 import Header from "@components/Header/Header";
 
@@ -29,6 +30,10 @@ export default function App() {
             <Stack.Screen
               name={routeConfig.routes.selfie}
               component={Selfie}
+            ></Stack.Screen>
+            <Stack.Screen
+              name={routeConfig.routes.camera}
+              component={Camera}
             ></Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>

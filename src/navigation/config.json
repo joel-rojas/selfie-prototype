@@ -1,6 +1,7 @@
 {
   "routes": {
     "home": "Home",
-    "selfie": "Selfie"
+    "selfie": "Selfie",
+    "camera": "Camera"
   }
 }
