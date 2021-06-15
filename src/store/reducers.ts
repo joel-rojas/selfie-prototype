@@ -37,6 +37,23 @@ export const selfiesReducer = (
         selectedSelfieId: action.payload as string,
       };
     }
+    case ISelfieActionLabels.SORT_LIST: {
+      const { payload } = action;
+      if (!payload) {
+        return {
+          ...state,
+          selfieList: [...state.selfieList].sort((a, b) => {
+            return +new Date(b.createdDate) - +new Date(a.createdDate);
+          }),
+        };
+      }
+      return {
+        ...state,
+        selfieList: [...state.selfieList].sort((a, b) => {
+          return +new Date(a.createdDate) - +new Date(b.createdDate);
+        }),
+      };
+    }
     default:
       return state;
   }

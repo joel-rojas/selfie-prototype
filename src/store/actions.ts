@@ -6,9 +6,14 @@ export enum ISelfieActionLabels {
   SAVE_SELFIE = "SAVE_SELFIE",
   SELFIE_SAVED = "SELFIE_SAVED",
   LOAD_SELFIE = "LOAD_SELFIE",
+  SORT_LIST = "SORT_LIST",
 }
 
-export type ISelfieActionPayload = ISelfieItem | ISelfieItem[] | string;
+export type ISelfieActionPayload =
+  | ISelfieItem
+  | ISelfieItem[]
+  | string
+  | boolean;
 
 export type ISelfieActions = {
   type: ISelfieActionLabels;
@@ -35,5 +40,10 @@ export const selfieSaved = (payload: ISelfieItem) => ({
 
 export const loadSelfie = (payload: string) => ({
   type: ISelfieActionLabels.LOAD_SELFIE,
+  payload,
+});
+
+export const sortList = (payload: boolean) => ({
+  type: ISelfieActionLabels.SORT_LIST,
   payload,
 });
