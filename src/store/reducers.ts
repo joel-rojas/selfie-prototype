@@ -1,4 +1,4 @@
-import { ISelfieItem } from "@models";
+import { ISelfieItem, parseLocaleDateToDate } from "@models";
 import { ISelfieActionLabels, ISelfieActions } from "./actions";
 
 export type ISelfieState = {
@@ -43,14 +43,18 @@ export const selfiesReducer = (
         return {
           ...state,
           selfieList: [...state.selfieList].sort((a, b) => {
-            return +new Date(b.createdDate) - +new Date(a.createdDate);
+            const aDate = parseLocaleDateToDate(new Date(a.createdDate), a.createdTime);
+            const bDate = parseLocaleDateToDate(new Date(b.createdDate), b.createdTime);
+            return +bDate - +aDate;
           }),
         };
       }
       return {
         ...state,
         selfieList: [...state.selfieList].sort((a, b) => {
-          return +new Date(a.createdDate) - +new Date(b.createdDate);
+          const aDate = parseLocaleDateToDate(new Date(a.createdDate), a.createdTime);
+          const bDate = parseLocaleDateToDate(new Date(b.createdDate), b.createdTime);
+          return +aDate - +bDate;
         }),
       };
     }
